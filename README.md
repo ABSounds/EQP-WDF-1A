@@ -1,5 +1,5 @@
 # EQP1A-WDF
-### Virtual Analog Modeling with Wave Digital Filters: Building a VST3 plug-in for the Pultec EQP-1A Equalizer.
+### Virtual Analog Modeling with Wave Digital Filters: Building a VST3 plug-in for the Pultec EQP-1A equalizer.
 
 ## Summary
 
