@@ -85,19 +85,17 @@ For the GUI (for now) the plugin uses JUCES's default GUI.
   <em>Graphical user interface of the plugin.</em>
 </p>
 
+<!--
 All the code necessary to compile the plugin is included in the [`/Source`](Source) folder and the JUCE [Projucer file](EQP1A.jucer) is also included.
+-->
 
 ## Installation
 To install the plugin, follow these steps:
-1. Download the VST3 release from the [`/Release`](Release) folder.
-2. Extract the ZIP file to your VST3 plugin directory.
+1. Download the [`EQP1A-WDF.vst3`](VST3) file from this repository.
+2. Copy the .vst3 file to your VST3 plugin directory.
 3. Open your DAW and scan for new plugins.
 4. Load the plugin into an audio track.
 
-To use the standalone application (Windows):
-1. Download the .exe file from the [`/Release`](Release) folder.
-2. Extract the ZIP file and execute it.
-3. Configure your input and output settings and start using it!
 <!--
 ## Development
 
