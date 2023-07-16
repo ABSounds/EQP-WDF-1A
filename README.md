@@ -1,11 +1,11 @@
 # EQP1A-WDF
-### Pultec EQP1A emulation using Wave Digital Filters.
+### Virtual Analog Modeling with Wave Digital Filters: Building a VST3 plug-in for the Pultec EQP-1A Equalizer.
 
 ## Summary
 
 This repository contains the code and resources used for virtualizing the circuit of the Putlec EQP1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
 
-## The Pultec EQP1A
+## The Pultec EQP-1A
 
 The Pultec EQP-1A is a classic analog equalizer that has been widely used in the music industry since its introduction in the 1950s. It is renowned for its unique sound and musicality, making it a favorite among audio engineers and producers.
 
