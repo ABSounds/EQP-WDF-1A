@@ -98,7 +98,7 @@ To use the standalone application (Windows):
 1. Download the .exe file from the [`/Release`](Release) folder.
 2. Extract the ZIP file and execute it.
 3. Configure your input and output settings and start using it!
-
+<!--
 ## Development
 
 To build the plugin from source, follow these steps:
@@ -106,7 +106,7 @@ To build the plugin from source, follow these steps:
 2. Open the `EQP1A.jucer` file in the Projucer application.
 3. Configure your build settings and export the project to your preferred IDE or build system.
 4. Build the project and run the plugin in your DAW.
-
+-->
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues, have suggestions for improvements, or would like to add new features, please submit a pull request.
