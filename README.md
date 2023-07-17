@@ -3,7 +3,7 @@
 
 ## Summary
 
-This repository contains the code and resources used for virtualizing the circuit of the Putlec EQP-1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
+This repository contains the VST3 plug-in that virtualizes the circuit of the Putlec EQP-1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
 
 ## The Pultec EQP-1A
 
@@ -26,9 +26,9 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 
 ## How to model the EQP1A?
   
-  To model the EQP1A circuit, first I compiled a few schematics of the unit that can be found online, and then I setup a simulation of the circuit in LTSpice. The schematic files used for the LTSpice simulations are included in the [`/CircuitSim`](CircuitSim) folder.
+  To model the EQP1A circuit, first I compiled a few schematics of the unit that can be found online, and then I setup a simulation of the circuit in LTSpice.
 
-  After some adjustments in the values of the elements of the circuit to get the frequency response as close as possible to [the original unit's one](https://www.soundonsound.com/reviews/pulse-techniques-eqp-1a) the circuit was implemented using Python and Gus Anthon's [pywdf library](https://github.com/gusanthon/pywdf). The Python implementation (and a second implementation using R-Type adaptors) can be found in the [`/Prototype`](Prototype) folder.
+  After some adjustments in the values of the elements of the circuit to get the frequency response as close as possible to [the original unit's one](https://www.soundonsound.com/reviews/pulse-techniques-eqp-1a) the circuit was implemented using Python and Gus Anthon's [pywdf library](https://github.com/gusanthon/pywdf).
 
   The comparison between the frequency response of the LTSpice simulation and Python implementation is included below.
 
@@ -73,9 +73,13 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 
 ---
  
-  Once the prototype is working as expected, the model needs to be ported to C++ to be able to compile it into a VST3 plugin that can run in a DAW. To do this, I used the [JUCE framework](https://juce.com) and [Chowdsp's WDF library](https://github.com/Chowdhury-DSP/chowdsp_wdf) to take care of the WDFs part in C++. I wrote the [`EQP1A.h`](Source/EQP1A.h) class that performs the circuit modeling and can be included in the JUCE `PluginProcessor.h` file.
+  Once the prototype is working as expected, the model needs to be ported to C++ to be able to compile it into a VST3 plugin that can run in a DAW. To do this, I used the [JUCE framework](https://juce.com) and [Chowdsp's WDF library](https://github.com/Chowdhury-DSP/chowdsp_wdf) to take care of the WDFs part in C++.
 
+<!-- I wrote the [`EQP1A.h`](Source/EQP1A.h) class that performs the circuit modeling and can be included in the JUCE `PluginProcessor.h` file. -->
+
+<!--
   For the WDF model to behave as expected at audio sample rates, oversampling is necessary. Luckily, JUCE has the [`dsp::Oversampling`](https://docs.juce.com/master/classdsp_1_1Oversampling.html) class that allows doing this easily. All the DSP is happening in the [`PluginProcessor.cpp`](Source/PluginProcessor.cpp) and the [`EQP1A.cpp`](Source/EQP1A.cpp) scripts.
+  -->
 
 For the GUI (for now) the plugin uses JUCES's default GUI.
 <p align = "center">
