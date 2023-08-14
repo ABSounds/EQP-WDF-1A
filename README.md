@@ -1,9 +1,18 @@
 # EQP-WDF-1A
-### Virtual Analog Modeling with Wave Digital Filters: Building a VST3 plug-in for the Pultec EQP-1A equalizer.
+### Pultec EQP-1A emulation using Wave Digital Filters.
 
 ## Summary
 
-This repository contains the VST3 plug-in that virtualizes the circuit of the Putlec EQP-1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
+This repository contains the code and resources used for virtualizing the circuit of the Putlec EQP1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
+
+<p align="center">
+  <img src="Figures/EQP_WDF_1A_PluginGUI.png" width = "900"
+</p>
+<p align="center">
+  <em>GUI of the EQP-WDF-1A VST3 plug-in.</em>
+</p>
+
+The plug-in is available in VST3 and as a standalone application and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](Release).
 
 ## The Pultec EQP-1A
 
@@ -26,9 +35,16 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 
 ## How to model the EQP1A?
   
-  To model the EQP1A circuit, first I compiled a few schematics of the unit that can be found online, and then I setup a simulation of the circuit in LTSpice.
+  To model the EQP1A circuit, first I compiled a few schematics of the unit that can be found online, and then I setup a simulation of the circuit in LTSpice. The schematic files used for the LTSpice simulations are included in the [`/CircuitSim`](CircuitSim) folder.
 
   After some adjustments in the values of the elements of the circuit to get the frequency response as close as possible to [the original unit's one](https://www.soundonsound.com/reviews/pulse-techniques-eqp-1a) the circuit was implemented using Python and Gus Anthon's [pywdf library](https://github.com/gusanthon/pywdf).
+
+<p align="center">
+  <img src="Figures/EQP1A_wdf_diagram.svg" height = "400" />
+</p>
+<p align="center">
+  <em>WDF structure used for the modeling of the circuit.</em>
+</p>
 
   The comparison between the frequency response of the LTSpice simulation and Python implementation is included below.
 
@@ -73,42 +89,20 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 
 ---
  
-  Once the prototype is working as expected, the model needs to be ported to C++ to be able to compile it into a VST3 plugin that can run in a DAW. To do this, I used the [JUCE framework](https://juce.com) and [Chowdsp's WDF library](https://github.com/Chowdhury-DSP/chowdsp_wdf) to take care of the WDFs part in C++.
-
-<!-- I wrote the [`EQP1A.h`](Source/EQP1A.h) class that performs the circuit modeling and can be included in the JUCE `PluginProcessor.h` file. -->
-
-<!--
-  For the WDF model to behave as expected at audio sample rates, oversampling is necessary. Luckily, JUCE has the [`dsp::Oversampling`](https://docs.juce.com/master/classdsp_1_1Oversampling.html) class that allows doing this easily. All the DSP is happening in the [`PluginProcessor.cpp`](Source/PluginProcessor.cpp) and the [`EQP1A.cpp`](Source/EQP1A.cpp) scripts.
-  -->
-
-For the GUI (for now) the plugin uses JUCES's default GUI.
-<p align = "center">
-  <img src="Figures/EQP1A_PluginGUI.png" height = "250" />
-</p>
-<p align="center">
-  <em>Graphical user interface of the plugin.</em>
-</p>
-
-<!--
-All the code necessary to compile the plugin is included in the [`/Source`](Source) folder and the JUCE [Projucer file](EQP1A.jucer) is also included.
--->
+  Once the prototype is working as expected, the model needs to be ported to C++ to be able to compile it into a VST3 plugin that can run in a DAW. To do this, I used the [JUCE framework](https://juce.com) and [Chowdsp's WDF library](https://github.com/Chowdhury-DSP/chowdsp_wdf) to take care of the WDFs part in C++. For the WDF model to behave as expected at audio sample rates, oversampling is necessary.
 
 ## Installation
 To install the plugin, follow these steps:
-1. Download the [`EQP1A-WDF.vst3`](VST3) file from this repository.
-2. Copy the .vst3 file to your VST3 plugin directory.
+1. Download the VST3 release from the [`/Release`](Release) folder.
+2. Extract the ZIP file to your VST3 plugin directory.
 3. Open your DAW and scan for new plugins.
 4. Load the plugin into an audio track.
 
-<!--
-## Development
+To use the standalone application (Windows):
+1. Download the .exe file from the [`/Release`](Release) folder.
+2. Extract the ZIP file and execute it.
+3. Configure your input and output settings and start using it!
 
-To build the plugin from source, follow these steps:
-1. Clone the repository: `git clone https://github.com/ABsounds/EQP1A-WDF`
-2. Open the `EQP1A.jucer` file in the Projucer application.
-3. Configure your build settings and export the project to your preferred IDE or build system.
-4. Build the project and run the plugin in your DAW.
--->
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues, have suggestions for improvements, or would like to add new features, please submit a pull request.
