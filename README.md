@@ -64,7 +64,7 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
   <img src="Figures/Prototype_HiBoostQ.png" height = "190" /> 
 </p>
 <p align="center">
-  <em>Curves for the high frequency boost at 5 kHz for different Q values.</em>
+  <em>Curves for the high frequency boost at 5 kHz for different bandwidths.</em>
 </p>
 
 ---
