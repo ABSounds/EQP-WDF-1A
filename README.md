@@ -98,11 +98,6 @@ To install the plugin, follow these steps:
 3. Open your DAW and scan for new plugins.
 4. Load the plugin into an audio track.
 
-To use the standalone application (Windows):
-1. Download the .exe file from the [`/Release`](Release) folder.
-2. Extract the ZIP file and execute it.
-3. Configure your input and output settings and start using it!
-
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues, have suggestions for improvements, or would like to add new features, please submit a pull request.
