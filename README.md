@@ -3,7 +3,7 @@
 
 ## Summary
 
-This repository contains the VST3 plug-ins modeling the circuit of the Putlec EQP1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plug-in using the JUCE framework.
+This repository contains an audio plug-in modeling the circuit of the Putlec EQP1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plug-in using the JUCE framework.
 
 <p align="center">
   <img src="Figures/EQP_WDF_1A_PluginGUI.png" width = "900"
@@ -12,7 +12,7 @@ This repository contains the VST3 plug-ins modeling the circuit of the Putlec EQ
   <em>GUI of the EQP-WDF-1A VST3 plug-in.</em>
 </p>
 
-The plug-in is available in VST3 and as a standalone application and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](Release).
+The plug-in is available in VST3 format and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](Release).
 
 ## The Pultec EQP-1A
 
