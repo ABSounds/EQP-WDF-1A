@@ -98,13 +98,15 @@ To install the plugin, follow these steps:
 3. Open your DAW and scan for new plugins.
 4. Load the plugin into an audio track.
 
-## Development
+<!--## Development
 
 To build the plugin from source, follow these steps:
 1. Clone the repository: `git clone https://github.com/ABsounds/EQP1A-WDF`
 2. Open the `EQP-WDF-1A.jucer` file in the Projucer application.
 3. Configure your build settings and export the project to your preferred IDE or build system.
 4. Build the project and run the plugin in your DAW.
+
+-->
 
 ## Contributing
 
