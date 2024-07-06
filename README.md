@@ -3,7 +3,7 @@
 
 ## Summary
 
-This repository contains the source code and binaries for an audio plug-in modeling the circuit of the Putlec EQP-1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into an audio plug-in using the JUCE framework.
+This repository contains the code and resources used for virtualizing the circuit of the Putlec EQP1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
 
 <p align="center">
   <img src="Figures/EQP_WDF_1A_PluginGUI.png" width = "900"
@@ -12,7 +12,7 @@ This repository contains the source code and binaries for an audio plug-in model
   <em>GUI of the EQP-WDF-1A VST3 plug-in.</em>
 </p>
 
-The plug-in is available in VST3 format or can be compiled into other formats from the Projucer.
+The plug-in is available in VST3 and as a standalone application and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](Release).
 
 ## The Pultec EQP-1A
 
@@ -35,9 +35,9 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 
 ## How to model the EQP1A?
   
-  To model the EQP1A circuit, first I compiled a few schematics of the unit that can be found online, and then I setup a simulation of the circuit in LTSpice. <!---The schematic files used for the LTSpice simulations are included in the [`/CircuitSim`](CircuitSim) folder. --->
+  To model the EQP1A circuit, first I compiled a few schematics of the unit that can be found online, and then I setup a simulation of the circuit in LTSpice. The schematic files used for the LTSpice simulations are included in the [`/CircuitSim`](CircuitSim) folder.
 
-  After some adjustments in the values of the elements of the circuit to get the frequency response as close as possible to [the original unit's one](https://www.soundonsound.com/reviews/pulse-techniques-eqp-1a) the circuit was implemented using Python and Gus Anthon's [pywdf library](https://github.com/gusanthon/pywdf).
+  After some adjustments in the values of the elements of the circuit to get the frequency response as close as possible to [the original unit's one](https://www.soundonsound.com/reviews/pulse-techniques-eqp-1a) the circuit was implemented using Python and Gus Anthon's [pywdf library](https://github.com/gusanthon/pywdf). The Python implementation (and a second implementation using R-Type adaptors) can be found in the [`/Prototype`](Prototype) folder.
 
 <p align="center">
   <img src="Figures/EQP1A_wdf_diagram.svg" height = "400" />
@@ -64,7 +64,7 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
   <img src="Figures/Prototype_HiBoostQ.png" height = "190" /> 
 </p>
 <p align="center">
-  <em>Curves for the high frequency boost at 5 kHz for different bandwidths.</em>
+  <em>Curves for the high frequency boost at 5 kHz for different Q values.</em>
 </p>
 
 ---
@@ -89,7 +89,11 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 
 ---
  
-  Once the prototype is working as expected, the model needs to be ported to C++ to be able to compile it into a VST3 plugin that can run in a DAW. To do this, I used the [JUCE framework](https://juce.com) and [Chowdsp's WDF library](https://github.com/Chowdhury-DSP/chowdsp_wdf) to take care of the WDFs part in C++. For the WDF model to behave as expected at audio sample rates, oversampling is necessary.
+  Once the prototype is working as expected, the model needs to be ported to C++ to be able to compile it into a VST3 plugin that can run in a DAW. To do this, I used the [JUCE framework](https://juce.com) and [Chowdsp's WDF library](https://github.com/Chowdhury-DSP/chowdsp_wdf) to take care of the WDFs part in C++. I wrote the [`EQP1A.h`](Source/EQP1A.h) class that performs the circuit modeling and can be used from JUCE's `PluginProcessor`.
+
+  For the WDF model to behave as expected at audio sample rates, oversampling is necessary. Luckily, JUCE has the [`dsp::Oversampling`](https://docs.juce.com/master/classdsp_1_1Oversampling.html) class that allows to do this easily. All the DSP happens in the [`PluginProcessor.cpp`](Source/PluginProcessor.cpp) and the [`EQP1A.cpp`](Source/EQP1A.cpp) scripts while the code related to the interface and the editor of the plug-in is contained in [`PluginEditor.cpp`](Source/PluginEditor.cpp).
+
+All the code necessary to compile the plugin is included in the [`/Source`](Source) folder and the JUCE [Projucer file](EQP1A.jucer) is also included.
 
 ## Installation
 To install the plugin, follow these steps:
@@ -98,7 +102,12 @@ To install the plugin, follow these steps:
 3. Open your DAW and scan for new plugins.
 4. Load the plugin into an audio track.
 
-<!--## Development
+To use the standalone application (Windows):
+1. Download the .exe file from the [`/Release`](Release) folder.
+2. Extract the ZIP file and execute it.
+3. Configure your input and output settings and start using it!
+
+## Development
 
 To build the plugin from source, follow these steps:
 1. Clone the repository: `git clone https://github.com/ABsounds/EQP1A-WDF`
@@ -106,17 +115,12 @@ To build the plugin from source, follow these steps:
 3. Configure your build settings and export the project to your preferred IDE or build system.
 4. Build the project and run the plugin in your DAW.
 
--->
-
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues, have suggestions for improvements, or would like to add new features, please submit a pull request.
 
 ## Acknowledgements
 
-This project was developed as my Master's Thesis in [Sound and Music Computing at Pompeu Fabra University](https://www.upf.edu/web/smc). Special thanks to [Xavier Lizarraga](https://www.linkedin.com/in/xavi-lizarraga-b1854751/) for proposing such an interesting topic and supervising my work throughout the process.
-
-The following resources were used in the development of this project:
 - [pywdf](https://github.com/gusanthon/pywdf) was used for the WDF Python prototyping.
 - [chowdsp::wdf](https://github.com/Chowdhury-DSP/chowdsp_wdf) was used for the C++ implementation of the circuit.
 - [R-Solver](https://github.com/jatinchowdhury18/R-Solver) was used to compute the scattering matrix for the R-Type implementation.

@@ -1,0 +1,18 @@
+Va 1 8 Vin
+Vb 2 9 RBoostHi1
+Vc 3 10 ZBoostHi
+Vd 3 11 RBoostHi2
+Ve 4 12 RCutHi1
+Vf 5 13 ZCutHi
+Vg 4 14 ZCutLo
+Vh 6 15 Rout
+Vi 7 16 ZBoostLo
+Ra 2 8
+Rb 3 9
+Rc 4 10
+Rd 4 11 
+Re 5 12
+Rf 7 13
+Rg 6 14
+Rh 7 15
+Ri 1 16
