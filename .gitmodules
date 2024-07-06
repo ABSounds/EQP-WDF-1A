@@ -1,0 +1,3 @@
+[submodule "Source/My-JUCE-Modules"]
+	path = Source/My-JUCE-Modules
+	url = https://github.com/ABSounds/My-JUCE-Modules.git
