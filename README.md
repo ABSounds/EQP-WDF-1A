@@ -6,7 +6,7 @@
 This repository contains the code and resources used for virtualizing the circuit of the Putlec EQP1A studio equalizer. The virtual analog model was developed using Wave Digital Filters (WDF) and the resulting model was integrated into a VST3 plugin using the JUCE framework.
 
 <p align="center">
-  <img src="Figures/EQP_WDF_1A_PluginGUI.png" width = "900"
+  <img src="Figures/EQP_WDF_1A_PluginGUI.png" width = "901"
 </p>
 <p align="center">
   <em>GUI of the EQP-WDF-1A VST3 plug-in.</em>
