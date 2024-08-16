@@ -4,7 +4,7 @@
               addUsingNamespaceToJuceHeader="1" displaySplashScreen="1" jucerFormatVersion="1"
               companyName="ABSounds" pluginFormats="buildAU,buildStandalone,buildVST3"
               pluginVST3Category="EQ" defines="JUCE_DISPLAY_SPLASH_SCREEN=0"
-              version="0.1.10" cppLanguageStandard="17">
+              version="0.1.10" cppLanguageStandard="latest">
   <MAINGROUP id="LetLNv" name="EQP-WDF-1A">
     <GROUP id="{F01AACF7-DE72-A2C4-3AC2-A6E95F8A7D74}" name="Resources">
       <FILE id="dy01dp" name="JewelON.png" compile="0" resource="1" file="Resources/JewelON.png"/>
