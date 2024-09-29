@@ -12,7 +12,7 @@ This repository contains the code and resources used for virtualizing the circui
   <em>GUI of the EQP-WDF-1A VST3 plug-in.</em>
 </p>
 
-The plug-in is available in VST3 and as a standalone application and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](Release).
+The plug-in is available in VST3 and as a standalone application and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](https://github.com/ABSounds/EQP-WDF-1A/releases/tag/v0.1.10).
 
 ## The Pultec EQP-1A
 
@@ -96,16 +96,10 @@ The Pultec EQP-1A is a classic analog equalizer that has been widely used in the
 All the code necessary to compile the plugin is included in the [`/Source`](Source) folder and the JUCE [Projucer file](EQP1A.jucer) is also included.
 
 ## Installation
-To install the plugin, follow these steps:
-1. Download the VST3 release from the [`/Release`](Release) folder.
-2. Extract the ZIP file to your VST3 plugin directory.
-3. Open your DAW and scan for new plugins.
-4. Load the plugin into an audio track.
 
-To use the standalone application (Windows):
-1. Download the .exe file from the [`/Release`](Release) folder.
-2. Extract the ZIP file and execute it.
-3. Configure your input and output settings and start using it!
+On Windows you can download the VST3 installer from the [releases](https://github.com/ABSounds/EQP-WDF-1A/releases/tag/v0.1.10) section of the repository.
+
+On MacOS you'll need to compile the plugin from source. See Development section below.
 
 ## Development
 
