@@ -14,6 +14,9 @@ This repository contains the code and resources used for virtualizing the circui
 
 The plug-in is available in VST3 and as a standalone application and is compatible with 64 bit Windows and MacOS operating systems. It closely matches the curves of the original Pultec EQP-1A using WDFs and internal oversampling. You can download it [here](https://github.com/ABSounds/EQP-WDF-1A/releases/tag/v0.1.10).
 
+---
+<div align="center"> This repository contains the results of a Master’s Thesis developed at the<br> <a href="https://www.upf.edu/web/mtg">Music Technology Group (MTG)</a>, Universitat Pompeu Fabra (UPF), Barcelona. <br><br> Thesis: <a href="https://zenodo.org/records/8382764"> Pultec EQP-1A Modeling with Wave Digital Filters </a> <br><br> Author: Alberto Barrera<br> Supervisor: Xavier Lizarraga </div>
+
 ## The Pultec EQP-1A
 
 The Pultec EQP-1A is a classic analog equalizer that has been widely used in the music industry since its introduction in the 1950s. It is renowned for its unique sound and musicality, making it a favorite among audio engineers and producers.
@@ -119,3 +122,19 @@ Contributions to this project are welcome! If you find any issues, have suggesti
 - [chowdsp::wdf](https://github.com/Chowdhury-DSP/chowdsp_wdf) was used for the C++ implementation of the circuit.
 - [R-Solver](https://github.com/jatinchowdhury18/R-Solver) was used to compute the scattering matrix for the R-Type implementation.
 - [JUCE](https://juce.com) was used for the development of the VST3 plugin.
+
+- [Master Thesis](https://zenodo.org/records/8382764).
+- [Original paper](http://hdl.handle.net/10230/60656).
+
+If you want to use this work, please use this citation:
+```bibtex
+@inproceedings{Barrera2024SMC,
+  title     = {Modeling the Pultec EQP-1A with Wave Digital Filters},
+  author    = {Barrera, Alberto and Lizarraga-Seijas, Xavier and Font, Frederic},
+  booktitle = {Proceedings of the 21st Sound and Music Computing Conference (SMC 2024)},
+  year      = {2024},
+  address   = {Porto, Portugal},
+  month     = {July},
+  note      = {July 4--6, 2024}
+}
+```
